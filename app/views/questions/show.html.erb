@@ -1,0 +1,21 @@
+<h1>
+<%= @question.name %>
+</h1>
+
+<h5>
+  <%= link_to 'All Questions', questions_path %>
+  <%= link_to 'Edit this Question', edit_question_path(@question) %>
+  <%= link_to 'Delete this Question', question_path(@question), method: :delete %>
+</h5>
+<br>
+<h3>Description</h3>
+<p>
+  <%= @question.description %>
+</p>
+
+<h2>Answers!</h2>
+<% @question.answers.each do |answer| %>
+  <p><%= answer.description %></p>
+<% end %>
+
+<%= render "answers/form" %>
